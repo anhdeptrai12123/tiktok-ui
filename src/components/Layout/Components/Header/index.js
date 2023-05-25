@@ -2,17 +2,22 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+    faArrowRightToBracket,
     faCircleQuestion,
     faCircleXmark,
     faCloudArrowUp,
+    faCoins,
     faEarthAsia,
     faEllipsisVertical,
+    faGear,
     faKeyboard,
+    faLanguage,
     faMagnifyingGlass,
     faSignIn,
     faSpinner,
+    faStore,
 } from '@fortawesome/free-solid-svg-icons';
-import { faBookmark, faUser,} from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faMoon, faUser,} from '@fortawesome/free-regular-svg-icons';
 
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -29,7 +34,7 @@ const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        icon: <FontAwesomeIcon icon={faLanguage} />,
         title: 'English',
         children: {
             title: 'Language',
@@ -90,30 +95,29 @@ function Header() {
             to: '/favorites',
         },
         {
-            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+            icon: <FontAwesomeIcon icon={faCoins} />,
             title: 'Get Coins',
             to: '/getcoins',
         },
         {
-            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-            title: 'Feedback and help',
-            to: '/feedback',
+            icon: <FontAwesomeIcon icon={faStore} />,
+            title: 'Business Suite',
+            to: '/businesssuite',
         },
         {
-            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-            title: 'Feedback and help',
-            to: '/feedback',
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Settings',
+            to: '/settings',
         },
         ...MENU_ITEMS,
         {
-            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-            title: 'Feedback and help',
-            to: '/feedback',
+            icon: <FontAwesomeIcon icon={faMoon} />,
+            title: 'Dark mode',
         },
         {
-            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-            title: 'Feedback and help',
-            to: '/feedback',
+            icon: <FontAwesomeIcon icon={faArrowRightToBracket} />,
+            title: 'Log out',
+            separate: true
         },
     ]
 
