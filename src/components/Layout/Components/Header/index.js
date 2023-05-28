@@ -29,6 +29,7 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessengesIcon, UploadIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -162,7 +163,22 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content='Upload video' placement='bottom'>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudArrowUp} />
+                                    <div>
+                                        <UploadIcon className={cx('upload-icon')} width='20px' height='20px'/>
+                                        <span className={cx('upload-text')}>Upload</span>
+                                    </div>
+                                </button>
+                            </Tippy>
+
+                            <Tippy delay={[0, 200]} content='Messages' placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <MessengesIcon className={cx('action-btn-svg')} width='2.6rem' height='2.6rem'/>
+                                </button>
+                            </Tippy>
+
+                            <Tippy delay={[0, 200]} content='Inbox' placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon className={cx('action-btn-svg')}/>
                                 </button>
                             </Tippy>
                         </>
