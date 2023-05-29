@@ -2,7 +2,7 @@ export const UploadIcon = ({ width = '3.2rem', height = '3.2rem', className }) =
     <svg
         className={className}
         width={width}
-        dataE2e=""
+        // dataE2e=""
         height={height}
         viewBox="0 0 16 16"
         fill="currentColor"
@@ -20,7 +20,7 @@ export const MessengesIcon = ({ width = '3.2rem', height = '3.2rem', className }
     <svg
         className={className}
         width={width}
-        dataE2e=""
+        // dataE2e=""
         height={height}
         viewBox="0 0 48 48"
         fill="currentColor"

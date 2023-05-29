@@ -18,6 +18,7 @@ import {
     faStore,
 } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark, faMoon, faUser,} from '@fortawesome/free-regular-svg-icons';
+import { InboxIcon, MessengesIcon, UploadIcon } from '~/components/Icons';
 
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -29,7 +30,7 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessengesIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -193,10 +194,11 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/da9787d8d526081c709e9de06202441b~c5_100x100.jpeg?x-expires=1685170800&x-signature=p7XqRUFPa4MSLOvPMJK5nQ2xiBA%3D"
                                 alt="Bao Na"
+                                fallback="https://yt3.ggpht.com/yti/AHyvSCCMKoYg2afa_MBBwclJNgcTkuMxAbM4LEwPjb4Gyw=s88-c-k-c0x00ffffff-no-rj-mo"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
