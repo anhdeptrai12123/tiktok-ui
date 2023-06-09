@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faArrowRightToBracket,
@@ -11,7 +12,7 @@ import {
     faSignIn,
     faStore,
 } from '@fortawesome/free-solid-svg-icons';
-import { faBookmark, faMoon, faUser,} from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faMoon, faUser } from '@fortawesome/free-regular-svg-icons';
 import { InboxIcon, MessengesIcon, UploadIcon } from '~/components/Icons';
 
 import Tippy from '@tippyjs/react';
@@ -23,6 +24,7 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/config/routes'
 
 const cx = classNames.bind(styles);
 
@@ -59,8 +61,6 @@ const MENU_ITEMS = [
 
 function Header() {
     const currentUser = true;
-    
-
 
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -104,15 +104,17 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faArrowRightToBracket} />,
             title: 'Log out',
-            separate: true
+            separate: true,
         },
-    ]
+    ];
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
+                    <Link to = {routesConfig.home} className={cx('logo-link')}>
+                        <img src={images.logo} alt="Tiktok" />
+                    </Link>
                 </div>
 
                 <Search />
@@ -120,24 +122,24 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content='Upload video' placement='bottom'>
+                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <div>
-                                        <UploadIcon className={cx('upload-icon')} width='20px' height='20px'/>
+                                        <UploadIcon className={cx('upload-icon')} width="20px" height="20px" />
                                         <span className={cx('upload-text')}>Upload</span>
                                     </div>
                                 </button>
                             </Tippy>
 
-                            <Tippy delay={[0, 200]} content='Messages' placement='bottom'>
+                            <Tippy delay={[0, 200]} content="Messages" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <MessengesIcon className={cx('action-btn-svg')} width='2.6rem' height='2.6rem'/>
+                                    <MessengesIcon className={cx('action-btn-svg')} width="2.6rem" height="2.6rem" />
                                 </button>
                             </Tippy>
 
-                            <Tippy delay={[0, 200]} content='Inbox' placement='bottom'>
+                            <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <InboxIcon className={cx('action-btn-svg')}/>
+                                    <InboxIcon className={cx('action-btn-svg')} />
                                 </button>
                             </Tippy>
                         </>

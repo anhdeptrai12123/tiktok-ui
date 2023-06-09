@@ -33,13 +33,13 @@ function Search() {
             setLoading(true);
 
             const result = await searchServices.search(debounced);
-            
+
             SetSearchResult(result);
 
             setLoading(false);
         };
 
-        fetchApi()
+        fetchApi();
     }, [debounced]);
 
     const handleClear = () => {
@@ -52,6 +52,18 @@ function Search() {
         setShowResult(false);
     };
 
+    const handleAccountItem = () => {
+        setSearchValue('');
+        SetSearchResult([]);
+    };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
+    };
+
     return (
         <HeadlessTippy
             interactive
@@ -61,7 +73,7 @@ function Search() {
                     <PopperWrapper>
                         <h4 className={cx('search-title')}>Accounts</h4>
                         {searchResult.map((result) => (
-                            <AccountItem key={result.id} data={result} />
+                            <AccountItem key={result.id} data={result} onClick={handleAccountItem} />
                         ))}
                     </PopperWrapper>
                 </div>
@@ -74,7 +86,7 @@ function Search() {
                     ref={inputRef}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowResult(true)}
                 />
 
@@ -86,7 +98,7 @@ function Search() {
 
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SerchIcon />
                 </button>
             </div>
