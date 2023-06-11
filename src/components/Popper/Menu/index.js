@@ -8,9 +8,9 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-const defaultFn = () => {}
+const defaultFn = () => {};
 
-function Menu({ children, items = [], hideOnClick=false, onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -26,7 +26,7 @@ function Menu({ children, items = [], hideOnClick=false, onChange = defaultFn })
                         if (isParent) {
                             setHistory((prev) => [...prev, item.children]);
                         } else {
-                            onChange(item)
+                            onChange(item);
                         }
                     }}
                 />
@@ -52,7 +52,7 @@ function Menu({ children, items = [], hideOnClick=false, onChange = defaultFn })
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
